@@ -9,13 +9,9 @@ export default defineConfig({
     federation({
       name: 'host_app',
       remotes: {
-        remote_dashboard: 'http://localhost:5001/assets/remoteEntry.js',
         remote_auth: 'http://localhost:5002/assets/remoteEntry.js',
       },
-      shared: {
-        react: { singleton: true, requiredVersion: '^18.0.0' },
-        'react-dom': { singleton: true, requiredVersion: '^18.0.0' },
-      },
+      shared: ['react', 'react-dom'],
     }),
   ],
   build: {
