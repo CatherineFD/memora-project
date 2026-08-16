@@ -1,11 +1,9 @@
-import { type JSX } from "react";
+import React from 'react';
+import { useUI } from './context';
+import type { CodeProps } from './types';
 
-export function Code({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}): JSX.Element {
-  return <code className={className}>{children}</code>;
-}
+export const Code: React.FC<CodeProps> = (props) => {
+  const ui = useUI();
+  const C = ui.Code;
+  return <C {...props} />;
+};
