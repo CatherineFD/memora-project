@@ -4,9 +4,11 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import { Button } from '@repo/ui';
+import { authStorage } from '@repo/auth-storage';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  console.log(authStorage.getTokens());
 
   return (
     <>
