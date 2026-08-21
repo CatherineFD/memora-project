@@ -4,7 +4,8 @@ import federation from '@originjs/vite-plugin-federation';
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(),
+  plugins: [
+    react(),
     federation({
       name: 'remote_auth',
       filename: 'remoteEntry.js',
