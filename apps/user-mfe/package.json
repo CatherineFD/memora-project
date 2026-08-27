@@ -1,5 +1,5 @@
 {
-  "name": "remote-auth",
+  "name": "user-mfe",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,7 +13,9 @@
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "@repo/ui": "*",
-    "@repo/auth-storage": "*"
+    "@repo/auth-storage": "*",
+    "@repo/http-client": "*",
+    "@repo/mocks": "*"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -28,5 +30,10 @@
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",
     "vite": "^8.0.12"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

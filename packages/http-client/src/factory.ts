@@ -4,7 +4,7 @@ export interface HttpClientConfig {
   /**
    * Функция для получения токена, токены в микрофронтах могут храниться в разных местах
    */
-  getAuthToken?: () => string | Promise<string>; 
+   getAuthToken?: () => string | null | Promise<string | null>; 
   defaultHeaders?: Record<string, string>;
 }
 

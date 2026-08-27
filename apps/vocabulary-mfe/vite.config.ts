@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: 'host_app',
+      name: 'vocabulary-mfe',
       remotes: {
         remote_auth: 'http://localhost:5002/assets/remoteEntry.js',
       },

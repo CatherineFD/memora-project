@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 import './App.css'
 
-const User = lazy(() => import('remote-auth/App'));
+const User = lazy(() => import('user-mfe/App'));
 
 function App() {
 
