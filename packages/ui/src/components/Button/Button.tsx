@@ -1,5 +1,5 @@
 import { Button as AntdButton } from 'antd';
-import type { ButtonProps } from './Button.types.js';
+import type { ButtonProps } from './Button.types.ts';
 
 export const Button = ({
   children,
