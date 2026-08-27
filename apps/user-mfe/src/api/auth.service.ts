@@ -1,26 +1,5 @@
 import { authClient } from './client'; 
-
-export interface LoginPayload {
-  email: string;
-  password: string;
-}
-
-export interface LoginResponse {
-  accessToken: string;
-  refreshToken: string;
-  expiresIn: number;
-  user: {
-    id: string;
-    name: string;
-    email: string;
-  };
-}
-
-export interface RegisterPayload {
-  name: string;
-  email: string;
-  password: string;
-}
+import type { LoginPayload, LoginResponse, RegisterPayload } from './types';
 
 export const authApi = {
   /**

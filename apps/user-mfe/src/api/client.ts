@@ -8,5 +8,5 @@ export const authClient = createHttpClient({
   getAuthToken: async () => {
     return authStorage.getAccessToken(); 
   },
-  defaultHeaders: { 'X-App-Id': 'remote-auth' },
+  defaultHeaders: { 'X-App-Id': 'user-mfe' },
 });
