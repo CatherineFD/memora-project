@@ -15,7 +15,9 @@
     "@repo/ui": "*",
     "@repo/auth-storage": "*",
     "@repo/http-client": "*",
-    "@repo/mocks": "*"
+    "@repo/mocks": "*",
+    "@repo/types": "*",
+    "@repo/utils": "*"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
