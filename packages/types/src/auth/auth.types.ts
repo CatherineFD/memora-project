@@ -1,3 +1,5 @@
+import type { User } from '../user';
+
 export interface LoginPayload {
   email: string;
   password: string;
@@ -7,12 +9,7 @@ export interface LoginResponse {
   accessToken: string;
   refreshToken: string;
   expiresIn: number;
-  user: {
-    id: string;
-    first_name: string;
-    last_name: string;
-    email: string;
-  };
+  user: User;
 }
 
 export interface RegisterPayload {

@@ -1,5 +1,5 @@
 import { authClient } from './client'; 
-import type { LoginPayload, LoginResponse, RegisterPayload } from './types';
+import type { LoginPayload, LoginResponse, RegisterPayload } from '@repo/types';
 
 export const authApi = {
   /**

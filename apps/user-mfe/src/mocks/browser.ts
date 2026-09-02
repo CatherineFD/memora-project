@@ -1,5 +1,5 @@
 import { setupWorker } from 'msw/browser'
-import { userHandlers } from '@repo/mocks'
+import { userMFEHandlers } from '@repo/mocks'
 import { http, HttpResponse } from 'msw'
 
 const localHandlers = [
@@ -12,4 +12,4 @@ const localHandlers = [
   }),
 ]
 
-export const worker = setupWorker(...userHandlers, ...localHandlers)
+export const worker = setupWorker(...userMFEHandlers, ...localHandlers)
