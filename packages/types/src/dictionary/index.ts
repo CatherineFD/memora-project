@@ -1,4 +1,5 @@
 export {
     Dictionary,
-    GetCardsParams,
+    DictionaryPayload,
+    DictionaryResponse,
 } from './dictionary.types';

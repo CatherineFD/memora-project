@@ -1,3 +1,5 @@
+import { ApiError, parseErrorBody } from './error';
+
 export interface HttpClientConfig {
   baseURL: string;
   timeout?: number;
@@ -6,6 +8,8 @@ export interface HttpClientConfig {
    */
    getAuthToken?: () => string | null | Promise<string | null>; 
   defaultHeaders?: Record<string, string>;
+  onError?: (error: ApiError | Error) => void;
+  onResponse?: (response: Response) => void | Promise<void>;
 }
 
 export interface RequestOptions extends Omit<RequestInit, 'body'> {
@@ -20,7 +24,14 @@ export interface HttpClient {
 }
 
 export function createHttpClient(config: HttpClientConfig): HttpClient {
-  const { baseURL, timeout = 10000, getAuthToken, defaultHeaders = {} } = config;
+  const {
+    baseURL,
+    timeout = 10000,
+    getAuthToken,
+    defaultHeaders = {},
+    onError,
+    onResponse,
+   } = config;
 
     async function request<T>(
         endpoint: string, 
@@ -50,11 +61,16 @@ export function createHttpClient(config: HttpClientConfig): HttpClient {
             body: options.body !== undefined ? JSON.stringify(options.body) : undefined,
         });
 
+        await onResponse?.(response);
+
         /**
          * Вызов глобального обратчика ошибок
          */
         if (!response.ok) {
-            throw new Error(`HTTP Error: ${response.status}`);
+          const errorData = await parseErrorBody(response);
+          const apiError = new ApiError(response.status, response.statusText, errorData);
+          onError?.(apiError);
+          throw apiError;
         }
 
         /**

@@ -3,9 +3,10 @@ export interface Dictionary {
   name: string;
 }
 
-export interface GetCardsParams {
-  page?: number;
-  limit?: number;
-  dictionary_id?: number;
-  search?: string;
+export interface DictionaryPayload {
+  name: string
+}
+
+export interface DictionaryResponse {
+  name: string
 }

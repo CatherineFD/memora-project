@@ -1,24 +1,20 @@
 import { http, HttpResponse, delay } from 'msw'
 
-export const userHandlers = [
-  http.get('/api/users/:id', async ({ params }) => {
+// Хендлер получения данных текущего пользователя
+export const getMeHandler = http.get('/auth/users/me', async () => {
+  await delay(600) // Имитация задержки сети
 
-    await delay(500) 
-    
-    return HttpResponse.json({
-      id: params.id,
-      name: 'John Doe',
-      role: 'admin',
-    })
-  }),
-  
-  http.post('/api/users', async ({ request }) => {
-    // Указываем ожидаемый тип тела запроса
-     const body = (await request.json()) as Record<string, unknown>
-    
-    return HttpResponse.json({ 
-        id: '123', 
-        ...body // Теперь TS знает, что body - это объект
-    }, { status: 201 })
-    })
-]
+  return HttpResponse.json({
+    id: 1,
+    email: 'user@example.com',
+    first_name: 'Иван',
+    last_name: 'Иванов',
+    created_at: '2026-08-15T12:00:00Z',
+    stats: {
+      total_cards: 150,
+      dictionaries_count: 5,
+      cards_due_today: 12,
+      streak_days: 7,
+    }
+  }, { status: 200 })
+})

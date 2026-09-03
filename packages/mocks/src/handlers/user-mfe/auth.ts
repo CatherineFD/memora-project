@@ -88,3 +88,12 @@ export const loginHandler = http.post<never, LoginPayload>('/auth/login', async 
 
   return HttpResponse.json(mockResponse, { status: 200 })
 })
+
+export const logoutHandler = http.post('/auth/logout', async () => {
+  // Имитируем небольшую задержку сети (выход обычно быстрый)
+  await delay(300)
+
+  // Возвращаем null, так как фронтенд ожидает post<null>
+  // Статус 200 OK означает, что сервер успешно аннулировал сессию/токен
+  return HttpResponse.json(null, { status: 200 })
+})

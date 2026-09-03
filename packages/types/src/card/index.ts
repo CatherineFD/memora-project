@@ -1,8 +1,9 @@
 export {
     Sentence,
-    CardProgress,
-    Card,
+    CardStatus,
+    CardDetail,
     CreateCardPayload,
     CreateCardResponse,
-    GetCardResponse
+    GetCardResponse,
+    CardListResponse,
 } from './card.types';
