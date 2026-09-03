@@ -22,11 +22,4 @@ export const authApi = {
   logout: () => {
     return authClient.post<null>('/auth/logout');
   },
-  
-  /**
-   * Получение данных текущего пользователя
-   */
-  getMe: () => {
-    return authClient.get<LoginResponse['user']>('/auth/me');
-  }
 };

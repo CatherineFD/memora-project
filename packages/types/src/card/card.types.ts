@@ -8,23 +8,34 @@ export interface Sentence {
   created_at: IsoDateString;
 }
 
-export interface CardProgress {
-  stage: number;
-  interval_days: number;
-  next_review_at: IsoDateString;
+export interface CardDictionary {
+  id: number;
+  name: string;
+}
+
+// export interface CardProgress {
+//   stage: number;
+//   interval_days: number;
+//   next_review_at: IsoDateString;
+// }
+
+export enum CardStatus {
+  unknown = 'unknown',
+  in_progress = 'in_progress',
+  learned = 'learned',
 }
 
 /**
  * Полная сущность карточки (для детального просмотра).
  */
-export interface Card {
+export interface CardDetail {
   word_id: number;
   word_en: string;
   word_ru: string;
   transcription: string;
   sentences: Sentence[];
   dictionaries: Dictionary[];
-  progress: CardProgress;
+  status: CardStatus,
 }
 
 /**
@@ -47,4 +58,12 @@ export interface CreateCardResponse {
 }
 
 // Ответ на GET /cards/{card_id}
-export type GetCardResponse = Card;
+export type GetCardResponse = CardDetail;
+
+export interface CardListResponse {
+  cards: CardDetail[];
+  total: number;
+  page: number;
+  limit: number;
+  has_next: boolean;
+}

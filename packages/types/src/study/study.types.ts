@@ -1,4 +1,5 @@
 import type { UUID } from '../common';
+import type { CardDetail } from '../card';
 
 /**
  * Карточка в режиме изучения — урезанная версия Card.
@@ -37,7 +38,18 @@ export interface ReviewPayload {
  * Ответ на POST /study/review.
  */
 export interface ReviewResponse {
-  word_id: number;
-  new_stage?: number;
-  next_review_at?: string;
+  success: boolean;
+  message?: string;
+}
+
+export type StudiedWordsListPayload = {
+  count: number, 
+}
+
+export interface StudiedWordsListResponse {
+  cards: CardDetail[],
+}
+
+export interface SessionResultPayload {
+  ids: number[]
 }
