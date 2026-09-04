@@ -1,5 +1,5 @@
 import { Input as AntdInput } from 'antd';
-import type { InputProps } from './Input.types';
+import type { InputProps } from './BaseInput.types';
 
 export const Input = ({
   type = 'text',
