@@ -2,22 +2,35 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import federation from '@originjs/vite-plugin-federation';
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
     federation({
-      name: 'vocabulary-mfe',
-      remotes: {
-        remote_auth: 'http://localhost:5000/assets/remoteEntry.js',
+      name: 'user_mfe', 
+      filename: 'remoteEntry.js', // Имя файла точки входа
+      exposes: {
+        './App': './src/App.tsx', 
       },
-      shared: ['react', 'react-dom'],
+      // Массив должен точно совпадать с тем, что в хосте
+      shared: ['react', 'react-dom', 'react-router-dom'],
     }),
+    react(), 
   ],
   build: {
-    target: 'esnext',
+    target: 'esnext', // Обязательно для Module Federation
+    minify: false,    // Удобно для отладки
+    cssCodeSplit: false, // ВАЖНО: предотвращает потерю стилей в микрофронтендах при сборке
   },
   server: {
+    port: 5002, // Должен совпадать с портом в конфиге хоста
+    headers: {
+      'Access-Control-Allow-Origin': '*', // КРИТИЧЕСКИ ВАЖНО: разрешает хосту (порт 5000) забирать файлы
+    },
+  },
+  // Рекомендация: настройка для режима preview (после npm run build)
+  preview: {
     port: 5002,
-  }
-})
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+  },
+});

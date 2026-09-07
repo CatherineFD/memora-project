@@ -6,18 +6,24 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: 'host_app',
+      name: 'host',
       remotes: {
-        // Имя_удаленного_приложения: 'URL_к_remoteEntry.js'
         user_mfe: 'http://localhost:5002/assets/remoteEntry.js',
         vocabulary_mfe: 'http://localhost:5001/assets/remoteEntry.js',
       },
       shared: ['react', 'react-dom', 'react-router-dom'],
     }),
   ],
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom'],
+    exclude: ['user_mfe', 'vocabulary_mfe'],
+  },
   build: {
     target: 'esnext', // Обязательно для Module Federation в Vite
     minify: false,    // Рекомендуется для dev-сборки, чтобы легче было дебажить
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
   },
   server: {
     port: 5000,
