@@ -1,0 +1,10 @@
+{
+  "latestErrorEvent": {
+    "code": "TYPE-001",
+    "message": "Failed to generate type declaration. Execute the below cmd to reproduce and fix the error. #TYPE-001\nargs: {\"cmd\":\"C:\\\\nvm4w\\\\nodejs\\\\node.exe C:\\\\development\\\\memora-project\\\\apps\\\\user-mfe\\\\node_modules\\\\typescript\\\\bin\\\\tsc --project C:\\\\development\\\\memora-project\\\\apps\\\\user-mfe\\\\node_modules\\\\.federation\\\\tsconfig.8ff887b7b11332ff95708ab75577be7b.json\"}\nView the docs to see how to solve: https://module-federation.io/guide/troubleshooting/type#type-001",
+    "args": {
+      "cmd": "C:\\nvm4w\\nodejs\\node.exe C:\\development\\memora-project\\apps\\user-mfe\\node_modules\\typescript\\bin\\tsc --project C:\\development\\memora-project\\apps\\user-mfe\\node_modules\\.federation\\tsconfig.8ff887b7b11332ff95708ab75577be7b.json"
+    },
+    "timestamp": 1788792797305
+  }
+}

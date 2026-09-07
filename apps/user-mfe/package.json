@@ -10,14 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
-    "@repo/ui": "*",
+    "@module-federation/vite": "^1.21.5",
     "@repo/auth-storage": "*",
     "@repo/http-client": "*",
     "@repo/mocks": "*",
     "@repo/types": "*",
-    "@repo/utils": "*"
+    "@repo/ui": "*",
+    "@repo/utils": "*",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
