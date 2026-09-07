@@ -11,7 +11,7 @@ export default defineConfig({
         // Замените './src/App.tsx' на реальный путь к вашему компоненту
         './VocabularyList': './src/App.tsx', 
       },
-      shared: ['react', 'react-dom', 'react-router-dom'],
+      shared: ['react', 'react-dom'],
     }),
     react(), 
   ],

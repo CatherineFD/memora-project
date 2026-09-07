@@ -11,7 +11,7 @@ export default defineConfig({
         './App': './src/App.tsx', 
       },
       // Массив должен точно совпадать с тем, что в хосте
-      shared: ['react', 'react-dom', 'react-router-dom'],
+      shared: ['react', 'react-dom'],
     }),
     react(), 
   ],

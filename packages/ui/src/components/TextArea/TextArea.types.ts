@@ -1,4 +1,4 @@
-import type { ReactNode, ChangeEvent, FocusEvent } from 'react';
+import type { ChangeEvent, FocusEvent } from 'react';
 
 export type TextAreaSize = 'small' | 'medium' | 'large';
 export type TextAreaStatus = 'default' | 'error' | 'warning' | 'success';

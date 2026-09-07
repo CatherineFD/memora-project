@@ -1,4 +1,4 @@
-export {
+export type {
     Dictionary,
     DictionaryPayload,
     DictionaryResponse,
