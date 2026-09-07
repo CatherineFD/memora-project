@@ -9,7 +9,7 @@ export default defineConfig({
       filename: 'remoteEntry.js',
       exposes: {
         // Замените './src/App.tsx' на реальный путь к вашему компоненту
-        './VocabularyList': './src/App.tsx', 
+        './App': './src/App.tsx', 
       },
       shared: ['react', 'react-dom'],
     }),
