@@ -9,7 +9,7 @@ export default defineConfig({
     federation({
       name: 'vocabulary-mfe',
       remotes: {
-        remote_auth: 'http://localhost:5002/assets/remoteEntry.js',
+        remote_auth: 'http://localhost:5000/assets/remoteEntry.js',
       },
       shared: ['react', 'react-dom'],
     }),
@@ -18,6 +18,6 @@ export default defineConfig({
     target: 'esnext',
   },
   server: {
-    port: 5000,
+    port: 5001,
   }
 })

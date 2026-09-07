@@ -7,14 +7,17 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: 'remote_auth',
-      filename: 'remoteEntry.js',
-      exposes: {
-        './LoginPage': './src/App.tsx',
+      name: 'vocabulary-mfe',
+      remotes: {
+        remote_auth: 'http://localhost:5000/assets/remoteEntry.js',
       },
       shared: ['react', 'react-dom'],
     }),
   ],
-  build: { target: 'esnext', minify: false, cssCodeSplit: false },
-  server: { port: 5002 },
+  build: {
+    target: 'esnext',
+  },
+  server: {
+    port: 5002,
+  }
 })
