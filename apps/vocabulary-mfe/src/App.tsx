@@ -1,12 +1,13 @@
-import './App.css'
+import { useRoutes } from 'react-router-dom';
+import { userRoutes } from './routes';
 
 function App() {
-
+  const element = useRoutes(userRoutes);
 
   return (
-    <div>
-      
-    </div>
+    <>
+      {element || <div>Ошибка загрузки модуля пользователя</div>}
+    </>
   )
 }
 
