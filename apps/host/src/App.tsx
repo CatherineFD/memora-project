@@ -1,8 +1,12 @@
-import { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Suspense, } from 'react';
+import { BrowserRouter, useRoutes } from 'react-router-dom';
+import { routeObjects } from './routes';
 import './App.css';
 
-const User = lazy(() => import('user_mfe/App'));
+const AppContent = () => {
+  const element = useRoutes(routeObjects);
+  return element;
+};
 
 function App() {
 
@@ -10,10 +14,7 @@ function App() {
     <>
       <BrowserRouter>
         <Suspense fallback={<div>Загрузка микрофронтенда...</div>}>
-          <Routes>
-            {/* Обратите внимание на /* в конце */}
-            <Route path="/user/*" element={<User />} />
-          </Routes>
+          <AppContent />
         </Suspense>
       </BrowserRouter>
     </>

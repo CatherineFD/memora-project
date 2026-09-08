@@ -6,27 +6,27 @@ export default defineConfig({
   plugins: [
     federation({
       name: 'user_mfe', 
-      filename: 'remoteEntry.js', // Имя файла точки входа
+      filename: 'remoteEntry.js',
       exposes: {
-        './App': './src/App.tsx', 
+        './App': './src/App.tsx',
+        './Login': './src/modules/Login/index.tsx',
+        './Register': './src/modules/Register/index.tsx', 
       },
-      // Массив должен точно совпадать с тем, что в хосте
-      shared: ['react', 'react-dom'],
+      shared: ['react', 'react-dom', 'react-router-dom'],
     }),
     react(), 
   ],
   build: {
-    target: 'esnext', // Обязательно для Module Federation
-    minify: false,    // Удобно для отладки
-    cssCodeSplit: false, // ВАЖНО: предотвращает потерю стилей в микрофронтендах при сборке
+    target: 'esnext',
+    minify: false,
+    cssCodeSplit: false,
   },
   server: {
-    port: 5002, // Должен совпадать с портом в конфиге хоста
+    port: 5002,
     headers: {
-      'Access-Control-Allow-Origin': '*', // КРИТИЧЕСКИ ВАЖНО: разрешает хосту (порт 5000) забирать файлы
+      'Access-Control-Allow-Origin': '*',
     },
   },
-  // Рекомендация: настройка для режима preview (после npm run build)
   preview: {
     port: 5002,
     headers: {
