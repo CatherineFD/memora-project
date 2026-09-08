@@ -5,23 +5,22 @@ import federation from '@originjs/vite-plugin-federation';
 export default defineConfig({
   plugins: [
     federation({
-      name: 'vocabulary_mfe', // Совпадает с ключом в remotes хоста
+      name: 'vocabulary_mfe',
       filename: 'remoteEntry.js',
       exposes: {
-        // Замените './src/App.tsx' на реальный путь к вашему компоненту
         './App': './src/App.tsx', 
       },
-      shared: ['react', 'react-dom'],
+      shared: ['react', 'react-dom', 'react-router-dom'],
     }),
     react(), 
   ],
   build: {
     target: 'esnext',
     minify: false,
-    cssCodeSplit: false, // ВАЖНО: предотвращает потерю стилей
+    cssCodeSplit: false,
   },
   server: {
-    port: 5001, // Должен совпадать с портом в конфиге хоста
+    port: 5001,
     headers: {
       'Access-Control-Allow-Origin': '*',
     },

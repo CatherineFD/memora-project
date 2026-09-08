@@ -11,7 +11,7 @@ export default defineConfig({
         user_mfe: 'http://localhost:5003/assets/remoteEntry.js',
         vocabulary_mfe: 'http://localhost:5001/assets/remoteEntry.js',
       },
-      shared: ['react', 'react-dom'],
+      shared: ['react', 'react-dom', 'react-router-dom'],
     }),
   ],
   optimizeDeps: {
