@@ -1,7 +1,7 @@
 interface AuthTokens {
   accessToken: string;
   refreshToken: string;
-  expiresAt: number; // timestamp, когда access token протухнет
+  expiresIn: number; // timestamp, когда access token протухнет
 }
 
 class AuthStorage {
@@ -34,7 +34,7 @@ class AuthStorage {
     if (!tokens) return null;
     
     // Проверяем, не протух ли токен
-    if (Date.now() >= tokens.expiresAt) {
+    if (Date.now() >= tokens.expiresIn) {
       return null; // токен протух, нужно делать refresh
     }
     
@@ -42,12 +42,12 @@ class AuthStorage {
   }
 
   // Обновляем только access token (после refresh)
-  updateAccessToken(accessToken: string, expiresAt: number): void {
+  updateAccessToken(accessToken: string, expiresIn: number): void {
     const tokens = this.getTokens();
     if (!tokens) return;
     
     tokens.accessToken = accessToken;
-    tokens.expiresAt = expiresAt;
+    tokens.expiresIn = expiresIn;
     this.setTokens(tokens);
   }
 
