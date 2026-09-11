@@ -1,18 +1,7 @@
 import { makeAutoObservable } from "mobx";
-import * as yup from "yup";
 import { authStorage } from '@repo/auth-storage';
+import { emailSchema, passwordSchema, DataField } from '@repo/validation';
 import { authApi } from '../../api/auth.service';
-import { DataField } from "../../models/DataField";
-
-const emailSchema = yup
-  .string()
-  .email("Некорректный email")
-  .required("Email обязателен");
-
-const passwordSchema = yup
-  .string()
-  .min(6, "Минимум 6 символов")
-  .required("Пароль обязателен");
 
 export class Auth {
     email = new DataField<string>("", emailSchema);
