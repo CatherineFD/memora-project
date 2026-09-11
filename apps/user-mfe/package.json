@@ -20,7 +20,8 @@
     "@repo/types": "*",
     "@repo/ui": "*",
     "@repo/utils": "*",
-    "@repo/validation": "*"
+    "@repo/validation": "*",
+    "@repo/core": "*"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
