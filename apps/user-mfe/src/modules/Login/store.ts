@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, action } from "mobx";
 import { authStorage } from '@repo/auth-storage';
 import { BaseStore } from '@repo/core';
 import { emailSchema, passwordSchema, DataField } from '@repo/validation';
@@ -10,7 +10,7 @@ const enum AuthStatus {
     guest = 'guest',
 }
 
-export class Auth extends BaseStore {
+export class AuthStore extends BaseStore {
     email = new DataField<string>("", emailSchema);
     password = new DataField<string>("", passwordSchema);
     authStatus = AuthStatus.unknown;
@@ -33,8 +33,24 @@ export class Auth extends BaseStore {
         return this.authStatus === AuthStatus.unknown;
     }
 
-    init () {
+    @action
+    setAuthStatus(value: AuthStatus) {
+        this.authStatus = value;
+    }
 
+    async init () {
+        if (this.isInitialized) return;
+
+        const isTokenValid = authStorage.isAuthenticated();
+
+         if (isTokenValid) {
+            this.setAuthStatus(AuthStatus.authenticated);
+        } else {
+            authStorage.clearTokens();
+            this.setAuthStatus(AuthStatus.guest);
+        }
+        
+        this.setInitializedStatus(true); 
     }
 
     setPassword(value: string) {
@@ -62,15 +78,22 @@ export class Auth extends BaseStore {
         const isValid = await this.validate();
         if (!isValid) return;
 
+        this.setLoading();
+
         try {
             const response = await authApi.login({
                 email: this.email.value,
                 password: this.password.value,
             });
 
-            authStorage.setTokens(response)
+            authStorage.setTokens(response);
+            this.setAuthStatus(AuthStatus.authenticated);
+            this.setSuccess();
+
+            return true;
         } catch (e) {
-            console.log(e);
+            this.setError(e instanceof Error ? e.message : "Ошибка авторизации");
+            return false;
         }
     }
 }

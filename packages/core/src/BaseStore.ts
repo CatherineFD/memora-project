@@ -38,8 +38,6 @@ export abstract class BaseStore {
    */
   abstract init(): Promise<void>;
 
-  // --- Опциональные методы (можно переопределить) ---
-
   /**
    * Очистка ресурсов при размонтировании.
    */
@@ -72,5 +70,9 @@ export abstract class BaseStore {
   protected setSuccess(): void {
     this.status = "success";
     this.error = null;
+  }
+
+  protected setInitializedStatus(value: boolean) {
+    this.isInitialized = value;
   }
 }
