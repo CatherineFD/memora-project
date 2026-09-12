@@ -11,15 +11,17 @@
   },
   "dependencies": {
     "@module-federation/vite": "^1.21.5",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "react-router-dom": "^7.18.3",
     "@repo/auth-storage": "*",
     "@repo/http-client": "*",
     "@repo/mocks": "*",
     "@repo/types": "*",
     "@repo/ui": "*",
     "@repo/utils": "*",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
-    "react-router-dom": "^7.18.3"
+    "@repo/validation": "*",
+    "@repo/core": "*"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

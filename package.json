@@ -25,6 +25,14 @@
     "packages/*"
   ],
   "dependencies": {
-    "antd": "^6.6.1"
-  }
+    "antd": "^6.6.1",
+    "mobx": "^7.0.3",
+    "mobx-react-lite": "^5.0.3",
+    "yup": "^1.7.1"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/CatherineFD/memora-project.git",
+  "author": "Firsova Ekaterina <ekaterina.firsova@nova-test.ru>",
+  "license": "MIT"
 }
