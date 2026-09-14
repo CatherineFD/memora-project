@@ -13,6 +13,7 @@
     "@originjs/vite-plugin-federation": "^1.4.1",
     "husky": "^9.1.7",
     "prettier": "^3.7.4",
+    "sass": "^1.104.1",
     "turbo": "^2.9.18",
     "typescript": "5.9.2"
   },
@@ -28,6 +29,8 @@
     "antd": "^6.6.1",
     "mobx": "^7.0.3",
     "mobx-react-lite": "^5.0.3",
+    "semantic-ui-css": "^2.5.0",
+    "semantic-ui-react": "^2.1.5",
     "yup": "^1.7.1"
   },
   "version": "1.0.0",

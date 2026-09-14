@@ -1,0 +1,11 @@
+{
+  "name": "@repo/styles",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.scss",
+  "exports": {
+    ".": "./src/index.scss",
+    "./variables": "./src/_variables.scss",
+    "./mixins": "./src/_mixins.scss"
+  }
+}

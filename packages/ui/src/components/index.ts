@@ -1,6 +1,6 @@
 export * from './Alert';
 export * from './Button';
-export * from './Checkbox';
+export * from './Checkbox/index.tsx';
 export * from './Divider';
 export * from './Dropdown';
 export * from './Form';
