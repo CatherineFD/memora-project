@@ -1,6 +1,5 @@
 import { useRoutes } from 'react-router-dom';
 import { userRoutes } from './routes';
-import { Button } from '@repo/ui';
 import { authStorage } from '@repo/auth-storage';
 
 function App() {

@@ -21,7 +21,8 @@
     "@repo/ui": "*",
     "@repo/utils": "*",
     "@repo/validation": "*",
-    "@repo/core": "*"
+    "@repo/core": "*",
+    "@repo/styles": "*"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

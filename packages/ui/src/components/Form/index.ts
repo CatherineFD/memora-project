@@ -1,4 +1,3 @@
-export { Form } from './Form';
 export type {
   FormProps,
   FormItemProps,
@@ -10,3 +9,4 @@ export type {
   FormLayout,
   FormSize,
 } from './Form.types';
+export { Form } from './Form';

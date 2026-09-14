@@ -8,7 +8,7 @@ export default defineConfig({
     federation({
       name: 'host',
       remotes: {
-        user_mfe: 'http://localhost:5003/assets/remoteEntry.js',
+        user_mfe: 'http://localhost:5002/assets/remoteEntry.js',
         vocabulary_mfe: 'http://localhost:5001/assets/remoteEntry.js',
       },
       shared: ['react', 'react-dom', 'react-router-dom'],

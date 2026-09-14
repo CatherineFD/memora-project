@@ -1,55 +1,58 @@
-import { Form as AntdForm } from 'antd';
-import type { FormProps } from './Form.types';
-import { FormItem } from './Form.Item';
-import { FormDropdown } from './Form.Dropdown';
-import { FormInput } from './Form.Input';
-import { FormSelect } from './Form.Select';
-import { FormButton } from './Form.Button';
+import React from 'react';
+import { Form as SUIForm } from 'semantic-ui-react';
+import type { FormProps } from 'semantic-ui-react';
 
-export const Form = ({
-  children,
-  onSubmit,
-  onValuesChange,
-  initialValues,
-  layout = 'vertical',
-  size = 'medium',
-  ...rest
-}: FormProps) => {
-  const antdSize = mapSizeToAntdSize(size);
+// 1. Обертка для Form.Input
+// Мы используем React.ComponentProps, чтобы автоматически подтянуть все типы из semantic-ui-react
+type FormInputProps = React.ComponentProps<typeof SUIForm.Input>;
 
-  const handleFinish = (values: Record<string, any>) => {
-    onSubmit?.(values);
-  };
-
+const FormInput: React.FC<FormInputProps> = (props) => {
   return (
-    <AntdForm
-      layout={layout}
-      size={antdSize}
-      initialValues={initialValues}
-      onFinish={handleFinish}
-      onValuesChange={onValuesChange}
-      {...rest}
-    >
-      {children}
-    </AntdForm>
+    // Задаем дефолтные пропсы. Если потребитель передаст свой fluid={false}, он перезапишет наш.
+    <SUIForm.Input 
+      fluid 
+      {...props} 
+    />
   );
 };
 
-// Compound components
-Form.Item = FormItem;
-Form.Dropdown = FormDropdown;
-Form.Input = FormInput;
-Form.Select = FormSelect;
-Form.Button = FormButton;
+// 2. Обертка для Form.Button
+type FormButtonProps = React.ComponentProps<typeof SUIForm.Button>;
 
-const mapSizeToAntdSize = (size: FormProps['size']) => {
-  switch (size) {
-    case 'small':
-      return 'small';
-    case 'large':
-      return 'large';
-    case 'medium':
-    default:
-      return 'middle';
-  }
+const FormButton: React.FC<FormButtonProps> = (props) => {
+  return (
+    <SUIForm.Button 
+      primary 
+      fluid 
+      {...props} 
+    />
+  );
 };
+
+// 3. Обертка для Form.Field (часто нужен для кастомных лейаутов)
+type FormFieldProps = React.ComponentProps<typeof SUIForm.Field>;
+
+const FormField: React.FC<FormFieldProps> = (props) => {
+  return <SUIForm.Field {...props} />;
+};
+
+// 4. Главный компонент Form
+// Мы создаем базовый компонент и "приклеиваем" к нему вложенные, 
+// чтобы сохранить привычный API: <Form.Input />, <Form.Button />
+type MyFormProps = FormProps;
+
+const FormBase: React.FC<MyFormProps> = (props) => {
+  // Можно добавить глобальный обработчик или классы
+  return <SUIForm {...props} />;
+};
+
+// Прикрепляем подкомпоненты к главному объекту Form
+const Form = Object.assign(FormBase, {
+  Input: FormInput,
+  Button: FormButton,
+  Field: FormField,
+  // Сюда можно добавить Group, Dropdown, Checkbox и т.д. по мере необходимости
+});
+
+export { Form };
+export type { MyFormProps, FormInputProps, FormButtonProps };
