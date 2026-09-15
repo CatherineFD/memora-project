@@ -1,4 +1,5 @@
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
+import { observer } from 'mobx-react-lite';
 import { AuthStore } from "../store";
 import { Form } from '@repo/ui';
 import type { InputOnChangeData } from "semantic-ui-react";
@@ -10,8 +11,8 @@ interface LoginFormProps {
 function LoginForm(props: LoginFormProps) {
     const { store } = props;
 
-    const emailField = useMemo(() => store.getEmail(), [store]);
-    const passwordField = useMemo(() => store.getPassword(), [store]);
+    const emailField = store.email;
+    const passwordField = store.password;
 
     const handleChangeEmail = useCallback((_: React.ChangeEvent<HTMLInputElement, Element>, data: InputOnChangeData) => {
         store.setEmail(data.value);
@@ -47,4 +48,4 @@ function LoginForm(props: LoginFormProps) {
     );
 }
 
-export default LoginForm;
+export default observer(LoginForm);
