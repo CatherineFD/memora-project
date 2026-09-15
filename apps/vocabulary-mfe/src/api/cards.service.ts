@@ -4,7 +4,7 @@ import type {
   CreateCardResponse, 
   CardDetail, 
   CardListResponse,
-} from '@repo/types';
+} from '@memora/types';
 
 export const cardsApi = {
   /**

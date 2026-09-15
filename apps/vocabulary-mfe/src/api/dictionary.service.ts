@@ -3,7 +3,7 @@ import type {
   DictionaryPayload, 
   DictionaryResponse, 
   Dictionary, 
-} from '@repo/types';
+} from '@memora/types';
 
 export const dictionaryApi = {
   /**

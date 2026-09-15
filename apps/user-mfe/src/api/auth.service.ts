@@ -1,5 +1,5 @@
 import { authClient } from './client'; 
-import type { LoginPayload, LoginResponse, RegisterPayload } from '@repo/types';
+import type { LoginPayload, LoginResponse, RegisterPayload } from '@memora/types';
 
 export const authApi = {
   /**

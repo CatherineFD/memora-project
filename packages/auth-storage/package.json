@@ -1,5 +1,5 @@
 {
-  "name": "@repo/auth-storage",
+  "name": "@memora/auth-storage",
   "version": "0.0.0",
   "private": true,
   "type": "module",

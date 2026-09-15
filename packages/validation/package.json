@@ -1,5 +1,5 @@
 {
-  "name": "@repo/validation",
+  "name": "@memora/validation",
   "version": "0.0.0",
   "private": true,
   "type": "module",

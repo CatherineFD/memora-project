@@ -3,7 +3,7 @@ import type {
   Dictionary, 
   DictionaryPayload, 
   DictionaryResponse 
-} from '@repo/types'
+} from '@memora/types'
 
 // ==========================================
 // ВИРТУАЛЬНАЯ БАЗА ДАННЫХ СЛОВАРЕЙ

@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { AuthStore } from "./store";
-import { Segment } from '@repo/ui';
+import { Segment } from '@memora/ui';
 import LoginForm from './components/LoginForm';
 import { Link, useNavigate } from 'react-router-dom';
 

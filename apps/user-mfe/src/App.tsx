@@ -1,6 +1,6 @@
 import { useRoutes } from 'react-router-dom';
 import { userRoutes } from './routes';
-import { authStorage } from '@repo/auth-storage';
+import { authStorage } from '@memora/auth-storage';
 
 function App() {
   console.log(authStorage.getTokens());

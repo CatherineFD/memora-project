@@ -1,5 +1,5 @@
-import { createHttpClient } from '@repo/http-client';
-import { authStorage } from '@repo/auth-storage';
+import { createHttpClient } from '@memora/http-client';
+import { authStorage } from '@memora/auth-storage';
 
 // Создаем клиент для Auth-remote
 export const authClient = createHttpClient({

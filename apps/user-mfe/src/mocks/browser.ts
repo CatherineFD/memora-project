@@ -1,5 +1,5 @@
 import { setupWorker } from 'msw/browser'
-import { userMFEHandlers } from '@repo/mocks'
+import { userMFEHandlers } from '@memora/mocks'
 import { http, HttpResponse } from 'msw'
 
 const localHandlers = [
