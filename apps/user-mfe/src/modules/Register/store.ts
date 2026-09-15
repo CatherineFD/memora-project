@@ -1,7 +1,7 @@
 import { makeAutoObservable, action } from "mobx";
 import { authStorage } from '@repo/auth-storage';
 import { BaseStore } from '@repo/core';
-import { emailSchema, passwordSchema, DataField } from '@repo/validation';
+import { emailSchema, passwordSchema, nameSchema, DataField } from '@repo/validation';
 import { authApi } from '../../api/auth.service';
 
 const enum AuthStatus {
@@ -10,9 +10,12 @@ const enum AuthStatus {
     guest = 'guest',
 }
 
-export class AuthStore extends BaseStore {
+export class RegisterStore extends BaseStore {
+    readonly firstName = new DataField<string>("", nameSchema('Имя'));
+    readonly lastName = new DataField<string>("", nameSchema('Фамилия'));
     readonly email = new DataField<string>("", emailSchema);
     readonly password = new DataField<string>("", passwordSchema);
+    readonly verifiedPassword = new DataField<string>("", passwordSchema);
     authStatus = AuthStatus.unknown;
 
     constructor() {
@@ -57,28 +60,48 @@ export class AuthStore extends BaseStore {
         this.password.setValue(value);
     }
 
+    setVerifiedPassword(value: string) {
+        this.verifiedPassword.setValue(value);
+    }
+
     setEmail(value: string) {
         this.email.setValue(value);
     }
 
+    setFirstName(value: string) {
+        this.firstName.setValue(value);
+    }
+
+    setLastName(value: string) {
+        this.lastName.setValue(value);
+    }
+
+    isAuth = () => authStorage.isAuthenticated(); 
+
     async validate(): Promise<boolean> {
         const results = await Promise.all([
+        this.firstName.validate(),
+        this.lastName.validate(),
         this.email.validate(),
         this.password.validate(),
+        this.verifiedPassword.validate(),
         ]);
+
         return results.every(Boolean);
     }
     
-    async login() {
+    async register() {
         const isValid = await this.validate();
         if (!isValid) return;
 
         this.setLoading();
 
         try {
-            const response = await authApi.login({
-                email: this.email.value,
-                password: this.password.value,
+            const response = await authApi.register({
+                email: this.email.value.trim(),
+                password: this.password.value.trim(),
+                first_name: this.firstName.value.trim(),
+                last_name: this.lastName.value.trim(),
             });
 
             authStorage.setTokens(response);
