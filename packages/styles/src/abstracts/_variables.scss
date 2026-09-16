@@ -1,0 +1,91 @@
+@use '../abstracts/tokens' as *;
+
+
+/* ---------------------------------
+   Typography
+---------------------------------- */
+$font-family-base: var(--font-family-base);
+$font-family-monospace: var(--font-family-monospace);
+
+$font-weight-regular: var(--font-weight-regular);
+$font-weight-medium: var(--font-weight-medium);
+$font-weight-semibold: var(--font-weight-semibold);
+$font-weight-bold: var(--font-weight-bold);
+
+$font-size-xs: var(--font-size-xs);
+$font-size-sm: var(--font-size-sm);
+$font-size-md: var(--font-size-md);
+$font-size-lg: var(--font-size-lg);
+$font-size-xl: var(--font-size-xl);
+$font-size-2xl: var(--font-size-2xl);
+$font-size-3xl: var(--font-size-3xl);
+
+$line-height-tight: var(--line-height-tight);
+$line-height-normal: var(--line-height-normal);
+$line-height-relaxed: var(--line-height-relaxed);
+
+/* ---------------------------------
+   Colors — Text
+---------------------------------- */
+$color-text-primary: var(--color-text-primary);
+$color-text-secondary: var(--color-text-secondary);
+$color-text-muted: var(--color-text-muted);
+$color-text-inverse: var(--color-text-inverse);
+
+/* ---------------------------------
+   Colors — Background & Border
+---------------------------------- */
+$color-background: var(--color-background);
+$color-background-secondary: var(--color-background-secondary);
+$color-background-tertiary: var(--color-background-tertiary);
+
+$color-border: var(--color-border);
+$color-border-focus: var(--color-border-focus);
+
+/* ---------------------------------
+   Colors — Primary & Brand
+---------------------------------- */
+$color-primary: var(--color-primary);
+$color-primary-hover: var(--color-primary-hover);
+$color-primary-active: var(--color-primary-active);
+
+// Memora Palette
+$tea-green: var(--color-tea-green);
+$beige: var(--color-beige);
+$cornsilk: var(--color-cornsilk);
+$papaya-whip: var(--color-papaya-whip);
+$light-bronze: var(--color-light-bronze);
+
+/* ---------------------------------
+   Colors — Error
+---------------------------------- */
+$color-error: var(--color-error);
+$color-error-background: var(--color-error-background);
+$color-error-border: var(--color-error-border);
+
+/* ---------------------------------
+   Layout & Spacing
+---------------------------------- */
+$container-width: var(--container-width);
+$container-padding: var(--container-padding);
+
+/* ---------------------------------
+   Radius
+---------------------------------- */
+$radius-sm: var(--radius-sm);
+$radius-md: var(--radius-md);
+$radius-lg: var(--radius-lg);
+$radius-full: var(--radius-full);
+
+/* ---------------------------------
+   Shadows
+---------------------------------- */
+$shadow-sm: var(--shadow-sm);
+$shadow-md: var(--shadow-md);
+$shadow-lg: var(--shadow-lg);
+
+/* ---------------------------------
+   Motion
+---------------------------------- */
+$transition-fast: var(--transition-fast);
+$transition-normal: var(--transition-normal);

@@ -1,0 +1,17 @@
+@use '../abstracts/variables' as *;
+
+.text-primary {
+  color: $color-text-primary;
+}
+
+.text-secondary {
+  color: $color-text-secondary;
+}
+
+.text-muted {
+  color: $color-text-muted;
+}
+
+.text-error {
+  color: $color-error;
+}

@@ -1,0 +1,11 @@
+@use '../abstracts/variables' as *;
+
+body {
+
+  background-color: $beige;
+  background-image: url('../assets/memora-background.svg');
+    
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}

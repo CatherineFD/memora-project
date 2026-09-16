@@ -8,6 +8,7 @@ import {
     UserMFE,
     VocabularyMFE,
 } from '../lazy-components';
+import GuestRoute from '../components/GuestRoute';
 
 export interface AppRoute {
   path: string;
@@ -36,12 +37,20 @@ export const routes: AppRoute[] = [
     children: [
       {
         path: 'login',
-        element: <LoginMFE />,
+        element: (
+          <GuestRoute redirectTo="/user">
+            <LoginMFE />
+          </GuestRoute>
+        ),
         meta: { title: 'Вход' },
       },
       {
         path: 'register',
-        element: <RegisterMFE />,
+        element: (
+          <GuestRoute redirectTo="/user">
+            <RegisterMFE />
+          </GuestRoute>
+        ),
         meta: { title: 'Регистрация' },
       },
     ],
