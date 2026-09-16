@@ -4,8 +4,8 @@ import type {
   CardListResponse, 
   CreateCardPayload, 
   CreateCardResponse, 
-} from '@repo/types'
-import { CardStatus } from '@repo/types';
+} from '@memora/types'
+import { CardStatus } from '@memora/types';
 
 // ==========================================
 // Виртуальная база данных

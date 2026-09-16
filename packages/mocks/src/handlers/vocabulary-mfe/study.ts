@@ -1,5 +1,5 @@
 import { http, HttpResponse, delay } from 'msw'
-import { CardStatus, type CardDetail } from '@repo/types'
+import { CardStatus, type CardDetail } from '@memora/types'
 
 // ==========================================
 // БАЗА СЛОВ ДЛЯ ИЗУЧЕНИЯ

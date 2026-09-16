@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { observer } from 'mobx-react-lite';
 import { AuthStore } from "../store";
-import { Form } from '@repo/ui';
+import { Form } from '@memora/ui';
 import type { InputOnChangeData } from "semantic-ui-react";
 
 interface LoginFormProps {

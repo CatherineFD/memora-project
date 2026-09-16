@@ -3,7 +3,7 @@ import type {
   StudiedWordsListPayload, 
   StudiedWordsListResponse,
   SessionResultPayload, 
-} from '@repo/types';
+} from '@memora/types';
 
 export const studyApi = {
   /**

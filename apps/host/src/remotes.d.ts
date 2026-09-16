@@ -21,3 +21,5 @@ declare module 'vocabulary_mfe/App' {
   const App: ComponentType;
   export default App;
 }
+
+declare module '@memora/styles';

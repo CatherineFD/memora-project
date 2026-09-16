@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { RegisterStore } from './store';
-import { Segment } from "@repo/ui";
+import { Segment } from "@memora/ui";
 import RegisterForm from './components/RegisterForm';
 
 function Register() {

@@ -1,0 +1,353 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+/* ---------------------------------
+   Design tokens
+---------------------------------- */
+
+:root {
+  /* Typography */
+  --font-family-base: "Manrope", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+
+  --font-family-monospace: "SFMono-Regular", Consolas, "Liberation Mono",
+    monospace;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-md: 1rem;      /* 16px */
+  --font-size-lg: 1.125rem;  /* 18px */
+  --font-size-xl: 1.25rem;   /* 20px */
+  --font-size-2xl: 1.5rem;   /* 24px */
+  --font-size-3xl: 2rem;     /* 32px */
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+
+  /* Colors — Memora palette */
+  --color-text-primary: #171717;
+  --color-text-secondary: #666666;
+  --color-text-muted: #8c8c8c;
+  --color-text-inverse: #ffffff;
+
+  --color-background: #ffffff;
+  --color-background-secondary: #f7f7f8;
+  --color-background-tertiary: #eeeeef;
+
+  --color-border: #dedede;
+  --color-border-focus: #2563eb;
+
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-active: #1e40af;
+
+    --color-tea-green: #ccd5aeff;
+  --color-beige: #e9edc9ff;
+  --color-cornsilk: #fefae0ff;
+  --color-papaya-whip: #faedcdff;
+  --color-light-bronze: #d4a373ff;
+
+  /* OLD error colors replaced */
+  /* --color-error: #dc2626; */
+
+  /* NEW Memora error palette */
+  --color-error: #D8655C;                /* text */
+  --color-error-background: #F7C6B3;     /* background */
+  --color-error-border: #D8655C;         /* border */
+
+  /* Layout */
+  --container-width: 1200px;
+  --container-padding: 1rem;
+
+  /* Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 12px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 12px 32px rgb(0 0 0 / 0.14);
+
+  /* Motion */
+  --transition-fast: 120ms ease;
+  --transition-normal: 200ms ease;
+}
+
+/* ---------------------------------
+   Sass variables
+---------------------------------- */
+
+$font-family-base: "Manrope", system-ui, -apple-system, BlinkMacSystemFont,
+  "Segoe UI", sans-serif;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$color-text-primary: #171717;
+$color-text-secondary: #666666;
+$color-background: #ffffff;
+$color-primary: #2563eb;
+
+$tea-green: #ccd5aeff;
+$beige: #e9edc9ff;
+$cornsilk: #fefae0ff;
+$papaya-whip: #faedcdff;
+$light-bronze: #d4a373ff;
+
+$color-error: #D8655C;
+$color-error-background: #F7C6B3;
+$color-error-border: #D8655C;
+
+/* ---------------------------------
+   Reset
+---------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  font-family: var(--font-family-base);
+  font-size: 16px;
+  line-height: var(--line-height-normal);
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-base);
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: var(--font-weight-regular);
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+/* ---------------------------------
+   Base typography
+---------------------------------- */
+
+body,
+input,
+textarea,
+select,
+button {
+  font-family: var(--font-family-base);
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+p {
+  line-height: var(--line-height-normal);
+}
+
+/* ---------------------------------
+   Form controls
+---------------------------------- */
+
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-background);
+  outline: none;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+input,
+select {
+  min-height: 2.75rem;
+  padding: 0 0.875rem;
+}
+
+textarea {
+  min-height: 6rem;
+  padding: 0.75rem 0.875rem;
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px rgb(37 99 235 / 0.15);
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  cursor: not-allowed;
+  background-color: var(--color-background-secondary);
+  opacity: 0.7;
+}
+
+/* Error states */
+input.error,
+textarea.error,
+select.error {
+  background-color: var(--color-error-background);
+  border-color: var(--color-error-border);
+}
+
+.text-error {
+  color: var(--color-error);
+}
+
+/* ---------------------------------
+   Accessibility
+---------------------------------- */
+
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------
+   Layout utilities
+---------------------------------- */
+
+.container {
+  width: min(100% - (var(--container-padding) * 2), var(--container-width));
+  margin-inline: auto;
+}
+
+.text-primary {
+  color: var(--color-text-primary);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-error {
+  color: var(--color-error);
+}

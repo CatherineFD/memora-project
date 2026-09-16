@@ -1,4 +1,4 @@
-import { Form } from '@repo/ui';
+import { Form } from '@memora/ui';
 import { useCallback } from 'react';
 import { RegisterStore } from '../store';
 import type { InputOnChangeData } from 'semantic-ui-react';

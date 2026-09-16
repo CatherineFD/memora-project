@@ -1,7 +1,7 @@
 import { makeAutoObservable, action } from "mobx";
-import { authStorage } from '@repo/auth-storage';
-import { BaseStore } from '@repo/core';
-import { emailSchema, passwordSchema, nameSchema, DataField } from '@repo/validation';
+import { authStorage } from '@memora/auth-storage';
+import { BaseStore } from '@memora/core';
+import { emailSchema, passwordSchema, nameSchema, DataField } from '@memora/validation';
 import { authApi } from '../../api/auth.service';
 
 const enum AuthStatus {
