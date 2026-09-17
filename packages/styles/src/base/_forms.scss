@@ -1,0 +1,72 @@
+@use '../abstracts/variables' as *;
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background-color: $color-background;
+  outline: none;
+  transition:
+    border-color $transition-fast,
+    box-shadow $transition-fast;
+}
+
+input,
+select {
+  min-height: 2.75rem;
+  padding: 0 0.875rem;
+}
+
+textarea {
+  min-height: 6rem;
+  padding: 0.75rem 0.875rem;
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: $color-text-muted;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: $color-border-focus;
+  box-shadow: 0 0 0 3px rgb(37 99 235 / 0.15);
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  cursor: not-allowed;
+  background-color: $color-background-secondary;
+  opacity: 0.7;
+}
+
+/* Локальный стиль ошибки для форм */
+input.error,
+textarea.error,
+select.error {
+  background-color: $color-error-background;
+  border-color: $color-error-border;
+}

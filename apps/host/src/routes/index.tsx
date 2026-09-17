@@ -1,4 +1,5 @@
 import type { RouteObject } from 'react-router-dom';
+import { ErrorPage } from '@memora/ui';
 import ProtectedRoute from '../components/ProtectedRoute';
 import PublicLayout from '../components/PublicLayout';
 import MainLayout from '../components/MainLayout';
@@ -8,6 +9,7 @@ import {
     UserMFE,
     VocabularyMFE,
 } from '../lazy-components';
+import GuestRoute from '../components/GuestRoute';
 
 export interface AppRoute {
   path: string;
@@ -36,12 +38,20 @@ export const routes: AppRoute[] = [
     children: [
       {
         path: 'login',
-        element: <LoginMFE />,
+        element: (
+          <GuestRoute redirectTo="/user">
+            <LoginMFE />
+          </GuestRoute>
+        ),
         meta: { title: 'Вход' },
       },
       {
         path: 'register',
-        element: <RegisterMFE />,
+        element: (
+          <GuestRoute redirectTo="/user">
+            <RegisterMFE />
+          </GuestRoute>
+        ),
         meta: { title: 'Регистрация' },
       },
     ],
@@ -70,7 +80,7 @@ export const routes: AppRoute[] = [
   },
   {
     path: '*',
-    element: <div>404: Страница не найдена</div>,
+    element: <ErrorPage code={404}/>,
   },
 ];
 

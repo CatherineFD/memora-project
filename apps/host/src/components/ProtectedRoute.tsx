@@ -1,4 +1,5 @@
 import { Navigate, useLocation } from 'react-router-dom';
+import { authStorage } from '@memora/auth-storage';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -6,7 +7,7 @@ interface ProtectedRouteProps {
 
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   const location = useLocation();
-  const isAuthenticated = localStorage.getItem('memora_token') !== null;
+  const isAuthenticated = authStorage.isAuthenticated();
   
   if (!isAuthenticated) {
     return <Navigate to="/login" state={{ from: location }} replace />;
