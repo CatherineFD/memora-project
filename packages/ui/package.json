@@ -22,6 +22,9 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
+  "dependencies": {
+    "@memora/styles": "*"
+  },
   "devDependencies": {
     "@memora/typescript-config": "*",
     "@types/node": "^22.15.3",

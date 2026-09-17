@@ -1,4 +1,5 @@
 import type { RouteObject } from 'react-router-dom';
+import { ErrorPage } from '@memora/ui';
 import ProtectedRoute from '../components/ProtectedRoute';
 import PublicLayout from '../components/PublicLayout';
 import MainLayout from '../components/MainLayout';
@@ -79,7 +80,7 @@ export const routes: AppRoute[] = [
   },
   {
     path: '*',
-    element: <div>404: Страница не найдена</div>,
+    element: <ErrorPage code={404}/>,
   },
 ];
 

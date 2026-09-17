@@ -1,6 +1,6 @@
 export * from './Alert';
 export * from './Button';
-export * from './Checkbox/index.tsx';
+export * from './Checkbox';
 export * from './Divider';
 export * from './Dropdown';
 export * from './Form';
@@ -15,3 +15,4 @@ export * from './Tag';
 export * from './Tabs';
 export * from './Spin';
 export * from './Segment';
+export * from './ErrorPage';
